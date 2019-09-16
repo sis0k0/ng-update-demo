@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-update-demo-lib": [
+        "dist/ng-update-demo-lib"
+      ],
+      "ng-update-demo-lib/*": [
+        "dist/ng-update-demo-lib/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
