@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { SearchBar } from 'ui/search-bar';
+
 @Component({
   selector: 'app-root',
   template: `
