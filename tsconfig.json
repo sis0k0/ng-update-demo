@@ -19,11 +19,11 @@
       "dom"
     ],
     "paths": {
-      "ng-update-demo-lib": [
-        "dist/ng-update-demo-lib"
+      "demo-lib": [
+        "dist/demo-lib"
       ],
-      "ng-update-demo-lib/*": [
-        "dist/ng-update-demo-lib/*"
+      "demo-lib/*": [
+        "dist/demo-lib/*"
       ]
     }
   },
