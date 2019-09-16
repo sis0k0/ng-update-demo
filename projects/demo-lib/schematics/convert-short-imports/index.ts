@@ -5,7 +5,6 @@ import { parse } from '@typescript-eslint/parser';
 import { Tree, SchematicContext } from '@angular-devkit/schematics';
 import { LoggerApi } from '@angular-devkit/core/src/logger';
 
-import { getFileContents } from '../utils';
 import { Schema as ConvertRelativeImportsSchema } from './schema';
 
 const ALLOWED_EXTENSIONS = [
@@ -75,7 +74,7 @@ function applyEsLintRuleFixes(fileContent: string, fileName: string, logger: Log
     );
 
     linter.defineParser(PARSER_NAME, {
-        parse: (<any>parse),
+      parse: parse as any
     });
 
     const messages = linter.verifyAndFix(fileContent, {
@@ -97,3 +96,10 @@ function applyEsLintRuleFixes(fileContent: string, fileName: string, logger: Log
 
     return fixedContent;
 }
+
+const getFileContents = (tree: Tree, filePath: string): string => {
+  const buffer = tree.read(filePath) || '';
+
+  return buffer.toString();
+};
+

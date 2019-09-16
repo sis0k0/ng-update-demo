@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:lib": "ng build demo-lib && (cd ./projects/demo-lib && npm run build)",
+    "publish:lib": "npm run build:lib && (cd ./dist/ng-update-demo && npm unpublish --registry http://localhost:4873 --force @my-schematics/demo-lib && npm publish --registry http://localhost:4873)"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +22,9 @@
     "@angular/platform-browser-dynamic": "~8.2.4",
     "@angular/router": "~8.2.4",
     "@my-schematics/demo-lib": "0.0.1",
+    "@typescript-eslint/parser": "^2.2.0",
+    "eslint": "^6.4.0",
+    "eslint-plugin-nativescript": "0.0.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
@@ -32,6 +37,7 @@
     "@angular/language-service": "~8.2.4",
     "@types/node": "~8.9.4",
     "@types/jasmine": "~3.3.8",
+    "@types/eslint": "^6.1.1",
     "@types/jasminewd2": "~2.0.3",
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",

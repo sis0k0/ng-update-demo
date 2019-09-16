@@ -3,7 +3,7 @@
   "schematics": {
     "migration-v002-remove-short-imports": {
       "version": "0.0.2",
-      "factory": "./schematics/update/convert-short-imports",
+      "factory": "./convert-short-imports/index",
       "description": "Converts the short imports from 'tns-core-modules' to full imports."
     }
   }

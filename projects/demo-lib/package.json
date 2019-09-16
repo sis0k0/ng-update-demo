@@ -5,6 +5,12 @@
     "@angular/common": "^8.2.5",
     "@angular/core": "^8.2.5"
   },
+  "scripts": {
+    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:schemas": "cp --parents schematics/*/schema.json ../../dist/ng-update-demo/",
+    "copy:migrations": "cp schematics/migrations.json ../../dist/ng-update-demo/schematics/migrations.json",
+    "postbuild": "npm run copy:schemas && npm run copy:migrations"
+  },
   "ng-update": {
     "migrations": "./schematics/migrations.json"
   }

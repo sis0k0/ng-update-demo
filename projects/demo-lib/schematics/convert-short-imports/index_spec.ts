@@ -3,7 +3,7 @@ import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
 import { getFileContent } from '@schematics/angular/utility/test';
 
 import { Schema as ConvertShortImportsOptions } from './schema';
-import { createTestProject, TestProjectSetup } from '../test-utils';
+import { createTestProject, TestProjectSetup } from './test-utils';
 
 const srcPath = 'src';
 const defaultOptions: ConvertShortImportsOptions = {
