@@ -15,8 +15,10 @@ const ALLOWED_EXTENSIONS = [
 export default function(options: ConvertRelativeImportsSchema) {
   return (tree: Tree, context: SchematicContext) => {
     const { logger } = context;
+    const { project } = options;
+    const srcPath = getProjectRoot(tree, project, logger) || '.';
 
-    const filesToFix = getFilesToFix(tree, options.srcPath, options.filesToIgnore);
+    const filesToFix = getFilesToFix(tree, srcPath, options.filesToIgnore);
     if (filesToFix.size === 0) {
       logger.debug('Convert Short Imports: No files to fix.');
 
@@ -25,6 +27,19 @@ export default function(options: ConvertRelativeImportsSchema) {
 
     return fixImports(tree, filesToFix, logger);
   };
+}
+
+function getProjectRoot(tree: Tree, project: string, logger: LoggerApi) {
+  const angularJsonContent = getFileContents(tree, 'angular.json');
+  const angularJsonObject = JSON.parse(angularJsonContent);
+  const projectOptions = angularJsonObject.projects[project];
+
+  if (!projectOptions) {
+    logger.debug('Convert Short Imports: Failed to find project root');
+    return;
+  }
+
+  return projectOptions.root;
 }
 
 function getFilesToFix(tree: Tree, srcPath: string, filesToIgnore: Array<string> = []) {

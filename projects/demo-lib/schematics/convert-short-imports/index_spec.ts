@@ -8,7 +8,6 @@ import { createTestProject, TestProjectSetup } from './test-utils';
 const srcPath = 'src';
 const defaultOptions: ConvertShortImportsOptions = {
   project: 'my-app',
-  srcPath,
 };
 
 const projSetup: TestProjectSetup = {

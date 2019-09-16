@@ -5,10 +5,6 @@ export interface Schema {
    */
   project: string;
   /**
-   * The path to the source directory.
-   */
-  srcPath: string;
-  /**
    * Array with paths to the files that shouldn't be modified by the schematic.
    */
   filesToIgnore?: Array<string>;

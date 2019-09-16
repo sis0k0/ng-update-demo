@@ -11,11 +11,6 @@
         "$source": "projectName"
       }
     },
-    "srcPath": {
-      "type":"string",
-      "description": "The path to the source directory",
-      "default": "src"
-    },
     "filesToIgnore": {
       "type": "array",
       "description": "Array with paths to the files that shouldn't be modified by the schematic.",
