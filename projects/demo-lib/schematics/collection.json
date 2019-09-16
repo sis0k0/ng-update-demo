@@ -1,8 +1,7 @@
 {
-  "$schema": "../../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "$schema": "./node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
-    "migration-v002-remove-short-imports": {
-      "version": "0.0.2",
+    "convert-short-imports": {
       "description": "Converts the short imports from 'tns-core-modules' to full imports.",
       "factory": "./convert-short-imports/index",
       "schema": "./convert-short-imports/schema.json"
